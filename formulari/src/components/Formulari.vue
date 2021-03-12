@@ -5,30 +5,30 @@
     <fieldset>
       <legend>Nova persona:</legend>
       <form v-on:submit.prevent="novaPersona()">
-        <div class="linia">
+        <div>
           <label>Nom:</label>
           <input v-model="persona.nom" placeholder="Nom" required />
         </div>
-        <div class="linia">
+        <div >
           <label>Llinatge 1:</label>
           <input v-model="persona.llin1" placeholder="Llinatge 1" required />
         </div>
-        <div class="linia">
+        <div>
           <label>Llinatge 2:</label>
           <input v-model="persona.llin2" placeholder="Llinatge 2" required />
         </div>
-        <div class="linia">
+        <div >
           <label>DNI:</label>
           <input v-model="persona.dni" placeholder="DNI" required/>
         </div>
-        <div class="linia">
+        <div>
           <input type="submit" value="Desa" />
         </div>
       </form>
     </fieldset>
     <fieldset>
       <legend>Persones:</legend>
-      <div class="linia" v-for="persona in persones" :key="persona.dni">
+      <div v-for="persona in persones" :key="persona.dni">
         <label>{{ persona.nom }} {{ persona.llin1 }} {{ persona.llin2 }}. Identificador: {{ persona.dni}}
           <input type="button" v-on:click="eliminaPersona(persona)" value="Elimina"/>
         </label>

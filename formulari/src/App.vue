@@ -1,13 +1,11 @@
 <template>
   <div id="app">
-    <!--img alt="Vue logo" src="./assets/logo.png"-->
-    <!--HelloWorld msg="Welcome to Your Vue.js App"/-->
     <Formulari msg="Formulari de proves"/>
   </div>
 </template>
 
 <script>
-import Formulari from './components/Formulari.vue'
+import Formulari from './components/Formulari'
 
 export default {
   name: 'App',
