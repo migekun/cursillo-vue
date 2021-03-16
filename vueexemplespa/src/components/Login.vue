@@ -15,6 +15,6 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 div {margin:10px}
 </style>
