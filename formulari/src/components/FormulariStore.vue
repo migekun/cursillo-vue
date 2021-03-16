@@ -1,9 +1,9 @@
 <template>
-  <div class="formulariPersona">
+  <div>
     <h1>{{ msg }}</h1>
     <fieldset>
       <legend>Nova persona:</legend>
-      <form @:submit.prevent="novaPersona()">
+      <form v-on:submit.prevent="novaPersona()">
         <div>
           <label>Nom:</label>
           <input v-model="persona.nom" placeholder="Nom" required />
@@ -28,7 +28,10 @@
 
     <fieldset>
       <legend>Persones:</legend>
-      <div v-for="persona in $store.getters.getRersones" v-bind:key="persona">
+      <div
+        v-for="persona in $store.getters.getPersones"
+        v-bind:key="persona.dni"
+      >
         <label
           >{{ persona.nom }} {{ persona.llin1 }} {{ persona.llin2 }}.
           Identificador: {{ persona.dni }}
@@ -61,6 +64,7 @@ export default {
   },
   methods: {
     novaPersona: function () {
+      console.log("Nova persona component");
       this.$store.commit("novaPersona", this.persona);
       this.persona = {
         nom: "",
@@ -70,8 +74,9 @@ export default {
       };
     },
     eliminaPersona: function (persona) {
+      console.log("elimina persona");
       this.$store.commit("eliminaPersona", persona);
     },
   },
 };
-</script>   
+</script>
