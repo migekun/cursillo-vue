@@ -1,21 +1,19 @@
 <template>
   <div id="app">
-    <Formulari msg="Formulari de proves sense store"/>
-    <formulari-store msg="Formulari de proves sense store"/>
+    <FormulariStore msg="Formulari de proves sense store" />
   </div>
 </template>
 
 <script>
 //import Formulari from './components/Formulari'
-import FormulariStore from './components/FormulariStore'
-
+import FormulariStore from "./components/FormulariStore";
 export default {
-  name: 'App',
+  name: "App",
   components: {
     //Formulari,
-    FormulariStore
-  }
-}
+    FormulariStore,
+  },
+};
 </script>
 
 <style>
