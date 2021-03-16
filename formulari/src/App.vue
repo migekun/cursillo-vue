@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <FormulariStore msg="Formulari de proves sense store" />
+    <FormulariStore msg="Formulari de proves AMB STORE" />
   </div>
 </template>
 
