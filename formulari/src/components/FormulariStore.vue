@@ -1,7 +1,6 @@
 <template>
-
-<div class="formulariPersona">
-    <h1>{{msg}}</h1>
+  <div class="formulariPersona">
+    <h1>{{ msg }}</h1>
     <fieldset>
       <legend>Nova persona:</legend>
       <form @:submit.prevent="novaPersona()">
@@ -9,7 +8,7 @@
           <label>Nom:</label>
           <input v-model="persona.nom" placeholder="Nom" required />
         </div>
-        <div >
+        <div>
           <label>Llinatge 1:</label>
           <input v-model="persona.llin1" placeholder="Llinatge 1" required />
         </div>
@@ -17,20 +16,27 @@
           <label>Llinatge 2:</label>
           <input v-model="persona.llin2" placeholder="Llinatge 2" required />
         </div>
-        <div >
+        <div>
           <label>DNI:</label>
-          <input v-model="persona.dni" placeholder="DNI" required/>
+          <input v-model="persona.dni" placeholder="DNI" required />
         </div>
         <div>
           <input type="submit" value="Desa" />
         </div>
       </form>
     </fieldset>
+
     <fieldset>
       <legend>Persones:</legend>
       <div v-for="persona in $store.getters.getRersones" v-bind:key="persona">
-        <label>{{ persona.nom }} {{ persona.llin1 }} {{ persona.llin2 }}. Identificador: {{ persona.dni}}
-          <input type="button" @click="eliminaPersona(persona)" value="Elimina"/>
+        <label
+          >{{ persona.nom }} {{ persona.llin1 }} {{ persona.llin2 }}.
+          Identificador: {{ persona.dni }}
+          <input
+            type="button"
+            @click="eliminaPersona(persona)"
+            value="Elimina"
+          />
         </label>
       </div>
     </fieldset>
@@ -38,11 +44,10 @@
 </template>
 
 <script>
-
 export default {
-  name: 'FormulariStore',
+  name: "FormulariStore",
   props: {
-    msg: String
+    msg: String,
   },
   data: function () {
     return {
@@ -50,10 +55,10 @@ export default {
         nom: "",
         llin1: "",
         llin2: "",
-        dni: ""
-      }
+        dni: "",
+      },
     };
-  }, 
+  },
   methods: {
     novaPersona: function () {
       this.$store.commit("novaPersona", this.persona);
@@ -61,12 +66,12 @@ export default {
         nom: "",
         llin1: "",
         llin2: "",
-        dni: ""
-      }
+        dni: "",
+      };
     },
     eliminaPersona: function (persona) {
       this.$store.commit("eliminaPersona", persona);
     },
   },
-}
-</script>
+};
+</script>   
