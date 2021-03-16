@@ -4,7 +4,7 @@
     <h1>{{msg}}</h1>
     <fieldset>
       <legend>Nova persona:</legend>
-      <form v-on:submit.prevent="novaPersona()">
+      <form @:submit.prevent="novaPersona()">
         <div>
           <label>Nom:</label>
           <input v-model="persona.nom" placeholder="Nom" required />
@@ -28,9 +28,9 @@
     </fieldset>
     <fieldset>
       <legend>Persones:</legend>
-      <div v-for="persona in persones" :key="persona.dni">
+      <div v-for="persona in $store.getters.getRersones" v-bind:key="persona">
         <label>{{ persona.nom }} {{ persona.llin1 }} {{ persona.llin2 }}. Identificador: {{ persona.dni}}
-          <input type="button" v-on:click="eliminaPersona(persona)" value="Elimina"/>
+          <input type="button" @click="eliminaPersona(persona)" value="Elimina"/>
         </label>
       </div>
     </fieldset>
@@ -38,16 +38,14 @@
 </template>
 
 <script>
-import Vuex from 'vuex'
 
 export default {
-  name: 'Formulari',
+  name: 'FormulariStore',
   props: {
     msg: String
   },
   data: function () {
     return {
-      persones: [],
       persona: {
         nom: "",
         llin1: "",
@@ -58,7 +56,7 @@ export default {
   }, 
   methods: {
     novaPersona: function () {
-      this.persones.push(this.persona);
+      this.$store.commit("novaPersona", this.persona);
       this.persona = {
         nom: "",
         llin1: "",
@@ -67,7 +65,7 @@ export default {
       }
     },
     eliminaPersona: function (persona) {
-      this.persones.splice(this.persones.indexOf(persona), 1);
+      this.$store.commit("eliminaPersona", persona);
     },
   },
 }
