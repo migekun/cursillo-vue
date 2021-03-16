@@ -30,7 +30,7 @@
       <legend>Persones:</legend>
       <div
         v-for="persona in $store.getters.getPersones"
-        v-bind:key="persona.dni"
+        v-bind:key="persona.id"
       >
         <label
           >{{ persona.nom }} {{ persona.llin1 }} {{ persona.llin2 }}.
