@@ -1,23 +1,24 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    persones: []
-  },
-  mutations: {
-    novaPersona(state, persona) {
-      state.persones.push(persona);
-    },
-    eliminaPersona(state, persona) {
-      state.persones.splice(state.persones.indexOf(persona), 1);
-    }
+    llista:[]
   },
   getters: {
-    getPersones: (state) => {
-      return state.persones;
+    getLlista: state => {
+      return state.llista;
+    }
+  },
+  mutations: {
+    afegeixElement:function(state, element){
+      state.llista.push(element);
+    },
+    eliminaElement:function(state, element){
+      let posicio = state.llista.indexOf(element);
+      state.llista.splice(posicio, 1);
     }
   }
-});
+})
